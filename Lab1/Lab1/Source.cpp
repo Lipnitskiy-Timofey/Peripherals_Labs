@@ -1,13 +1,14 @@
 #include "PCI.h"
 #include <iostream>
 using namespace std;
+
 int main()
 {
-	HDEVINFO infoSet = getInfoSet();
+	HDEVINFO infoSet = unitsPCI::getInfoSet();
 
-	getInfo(infoSet);
+	unitsPCI::getInfo(infoSet);
 
-	if (!SetupDiDestroyDeviceInfoList(infoSet))
+	if (!SetupDiDestroyDeviceInfoList(infoSet))//освобождает память
 	{
 		cout << GetLastError() << endl;
 	}
